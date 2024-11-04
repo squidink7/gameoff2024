@@ -17,3 +17,7 @@ config/icon="res://icon.svg"
 [dotnet]
 
 project/assembly_name="GameOff2024"
+
+[filesystem]
+
+import/blender/enabled=false
