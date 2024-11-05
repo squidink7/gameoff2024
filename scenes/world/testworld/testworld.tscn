@@ -3,13 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://da2kj0k548srg" path="res://scenes/objects/player/player.tscn" id="1_c4uh2"]
 [ext_resource type="Shader" path="res://scenes/objects/player/lightoccluder.gdshader" id="2_hvlfp"]
 [ext_resource type="Texture2D" uid="uid://b465jg71svfub" path="res://icon.svg" id="2_nnav5"]
-[ext_resource type="Texture2D" uid="uid://v3lnkt60n8hv" path="res://assets/textures/world/sandstone.png" id="2_yvsho"]
 [ext_resource type="PackedScene" uid="uid://bc8m3aqmqalwy" path="res://scenes/objects/player/lightmask_viewport.tscn" id="3_7a7a1"]
-[ext_resource type="Texture2D" path="res://assets/textures/world/cracked_sandstone_plane.png" id="3_wvfgy"]
-[ext_resource type="Texture2D" path="res://assets/textures/world/cracked_sandstone_cube.png" id="4_ys81h"]
+[ext_resource type="Texture2D" uid="uid://dba1i17rc183r" path="res://assets/textures/world/cracked_sandstone_plane.png" id="3_wvfgy"]
+[ext_resource type="Texture2D" uid="uid://bt340neeg4igv" path="res://assets/textures/world/cracked_sandstone_cube.png" id="4_ys81h"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x4rk3"]
+load_path = "res://.godot/imported/sandstone.png-e581684f9ba6fe320178eef40aa3d24c.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1stbu"]
-texture = ExtResource("2_yvsho")
+texture = SubResource("CompressedTexture2D_x4rk3")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:1/0 = 0
