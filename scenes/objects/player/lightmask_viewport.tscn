@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc8m3aqmqalwy"]
+
+[ext_resource type="Texture2D" uid="uid://s16ljs6j8tcf" path="res://scenes/objects/player/kiki.png" id="1_i8kth"]
+
+[node name="LightmaskViewport" type="SubViewport"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Lightmask" type="Sprite2D" parent="."]
+visibility_layer = 2
+position = Vector2(112, 8)
+scale = Vector2(0.12451, 0.12451)
+texture = ExtResource("1_i8kth")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visibility_layer = 2
