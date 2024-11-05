@@ -15,6 +15,25 @@ shader_parameter/occluder_texture = SubResource("ViewportTexture_t2xyv")
 
 [node name="Testworld" type="Node2D"]
 
+[node name="Background" type="CanvasGroup" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(424, 160)
+scale = Vector2(10.625, 4.75)
+texture = ExtResource("2_nnav5")
+
+[node name="Items" type="CanvasGroup" parent="."]
+material = SubResource("ShaderMaterial_k1i5o")
+
+[node name="items" type="Node2D" parent="Items"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Items/items"]
+texture = ExtResource("2_nnav5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Items/items"]
+position = Vector2(216, 88)
+texture = ExtResource("2_nnav5")
+
 [node name="LightmaskViewport" type="SubViewport" parent="."]
 transparent_bg = true
 handle_input_locally = false
@@ -33,15 +52,3 @@ visibility_layer = 2
 [node name="Player" parent="." instance=ExtResource("1_c4uh2")]
 
 [node name="WorldCamera" type="Camera2D" parent="Player"]
-
-[node name="Items" type="CanvasGroup" parent="."]
-material = SubResource("ShaderMaterial_k1i5o")
-
-[node name="items" type="Node2D" parent="Items"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Items/items"]
-texture = ExtResource("2_nnav5")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Items/items"]
-position = Vector2(216, 88)
-texture = ExtResource("2_nnav5")
