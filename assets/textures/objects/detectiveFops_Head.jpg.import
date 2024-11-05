@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://yj7e25u6jhd5"
+path.s3tc="res://.godot/imported/detectiveFops_Head.jpg-b667e6cc2b5118c5d317f16bbd2f9604.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "d1dd210d6b1312cb342b56d02bd5e651"
+}
+
+[deps]
+
+source_file="res://assets/textures/objects/detectiveFops_Head.jpg"
+dest_files=["res://.godot/imported/detectiveFops_Head.jpg-b667e6cc2b5118c5d317f16bbd2f9604.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=2
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
