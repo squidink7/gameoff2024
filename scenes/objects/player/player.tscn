@@ -1,11 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://da2kj0k548srg"]
 
 [ext_resource type="Script" path="res://scenes/objects/player/Player.cs" id="1_ugjtn"]
+[ext_resource type="PackedScene" uid="uid://ddvcks2id6uf6" path="res://assets/textures/objects/detectiveFops.glb" id="2_6wx74"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_n86pn"]
 viewport_path = NodePath("Sprite/3DViewport")
-
-[sub_resource type="TorusMesh" id="TorusMesh_qj76w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6hibk"]
 radius = 64.0
@@ -22,14 +21,13 @@ texture = SubResource("ViewportTexture_n86pn")
 transparent_bg = true
 
 [node name="Camera3D" type="Camera3D" parent="Sprite/3DViewport"]
-transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 1, 1, 1)
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 1.70806, 2.61261, 1.70806)
 fov = 60.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Sprite/3DViewport/Camera3D"]
 
-[node name="PlayerMesh" type="MeshInstance3D" parent="Sprite/3DViewport"]
-mesh = SubResource("TorusMesh_qj76w")
-skeleton = NodePath("../../..")
+[node name="detectiveFops" parent="Sprite/3DViewport" instance=ExtResource("2_6wx74")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6hibk")
