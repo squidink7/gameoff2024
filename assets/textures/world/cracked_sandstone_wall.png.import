@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcjsk110e24mw"
-path="res://.godot/imported/sandstone.png-e581684f9ba6fe320178eef40aa3d24c.ctex"
+uid="uid://bd0bfwarde25l"
+path="res://.godot/imported/cracked_sandstone_wall.png-be74e2a07b7c298553a8515ec8c74e92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/world/sandstone.png"
-dest_files=["res://.godot/imported/sandstone.png-e581684f9ba6fe320178eef40aa3d24c.ctex"]
+source_file="res://assets/textures/world/cracked_sandstone_wall.png"
+dest_files=["res://.godot/imported/cracked_sandstone_wall.png-be74e2a07b7c298553a8515ec8c74e92.ctex"]
 
 [params]
 
