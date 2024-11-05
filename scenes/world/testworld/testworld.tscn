@@ -1,12 +1,54 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7qjx6by4y4x1"]
+[gd_scene load_steps=15 format=4 uid="uid://c7qjx6by4y4x1"]
 
 [ext_resource type="PackedScene" uid="uid://da2kj0k548srg" path="res://scenes/objects/player/player.tscn" id="1_c4uh2"]
 [ext_resource type="Shader" path="res://scenes/objects/player/lightoccluder.gdshader" id="2_hvlfp"]
 [ext_resource type="Texture2D" uid="uid://b465jg71svfub" path="res://icon.svg" id="2_nnav5"]
+[ext_resource type="Texture2D" uid="uid://v3lnkt60n8hv" path="res://assets/textures/world/sandstone.png" id="2_yvsho"]
 [ext_resource type="PackedScene" uid="uid://bc8m3aqmqalwy" path="res://scenes/objects/player/lightmask_viewport.tscn" id="3_7a7a1"]
+[ext_resource type="Texture2D" path="res://assets/textures/world/cracked_sandstone_plane.png" id="3_wvfgy"]
+[ext_resource type="Texture2D" path="res://assets/textures/world/cracked_sandstone_cube.png" id="4_ys81h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1stbu"]
+texture = ExtResource("2_yvsho")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:4/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+0:7/0 = 0
+0:8/0 = 0
+0:9/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_fbvy6"]
+tile_shape = 1
+tile_size = Vector2i(32, 16)
+sources/2 = SubResource("TileSetAtlasSource_1stbu")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73c5u"]
+texture = ExtResource("4_ys81h")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6btpv"]
+texture = ExtResource("3_wvfgy")
+texture_region_size = Vector2i(32, 16)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_f5jkx"]
+tile_shape = 1
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_73c5u")
+sources/1 = SubResource("TileSetAtlasSource_6btpv")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_t2xyv"]
-viewport_path = NodePath("LightmaskViewport")
+viewport_path = NodePath(".")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k1i5o"]
 resource_local_to_scene = true
@@ -22,7 +64,16 @@ position = Vector2(424, 160)
 scale = Vector2(10.625, 4.75)
 texture = ExtResource("2_nnav5")
 
+[node name="FloorTiles" type="TileMapLayer" parent="Background"]
+tile_map_data = PackedByteArray("AAAFAAEAAgAAAAEAAAAGAAAAAgAAAAEAAAAGAAEAAgAAAAEAAAAGAAIAAgAAAAEAAAAFAAMAAgAAAAEAAAAFAAIAAgAAAAEAAAAHAAIAAgAAAAEAAAAGAAMAAgAAAAEAAAAGAAQAAgAAAAEAAAAFAAUAAgAAAAEAAAAHAAMAAgAAAAEAAAAHAAQAAgAAAAEAAAAGAAUAAgAAAAEAAAAGAAYAAgAAAAEAAAAFAAcAAgAAAAEAAAAFAAYAAgAAAAEAAAAFAAQAAgAAAAEAAAAEAAMAAgAAAAEAAAAEAAUAAgAAAAEAAAAEAAcAAgAAAAEAAAAEAAYAAgAAAAEAAAAEAAQAAgAAAAEAAAADAAcAAgAAAAEAAAADAAUAAgAAAAEAAAAFAAgAAgAAAAEAAAAEAAgAAgAAAAEAAAAHAAUAAgAAAAEAAAAIAAIAAgAAAAEAAAAIAAEAAgAAAAEAAAAIAAAAAgAAAAEAAAAHAP//AgAAAAEAAAAHAP7/AgAAAAEAAAAGAP//AgAAAAEAAAAHAAAAAgAAAAEAAAAHAAEAAgAAAAEAAAAGAP7/AgAAAAEAAAAFAP//AgAAAAEAAAAFAAAAAgAAAAEAAAAEAAEAAgAAAAEAAAAEAAIAAgAAAAEAAAADAAMAAgAAAAEAAAAHAAYAAgAAAAEAAAAGAAcAAgAAAAEAAAAGAP3/AgAAAAIAAAAFAP3/AgAAAAQAAAAFAP7/AgAAAAQAAAAEAP//AgAAAAQAAAAEAAAAAgAAAAQAAAADAAEAAgAAAAQAAAADAAIAAgAAAAQAAAAHAP3/AgAAAAMAAAAIAP7/AgAAAAMAAAAIAP//AgAAAAMAAAAJAAAAAgAAAAMAAAAHAPv/AgAAAAMAAAAIAPz/AgAAAAMAAAAIAP3/AgAAAAMAAAAJAP7/AgAAAAMAAAAHAPn/AgAAAAMAAAAIAPr/AgAAAAMAAAAIAPv/AgAAAAMAAAAJAPz/AgAAAAMAAAAGAPv/AgAAAAIAAAAGAPn/AgAAAAIAAAAFAPv/AgAAAAQAAAAFAPz/AgAAAAQAAAAEAP3/AgAAAAQAAAAEAP7/AgAAAAQAAAADAP//AgAAAAQAAAADAAAAAgAAAAQAAAA=")
+tile_set = SubResource("TileSet_fbvy6")
+
+[node name="FloorTiles2" type="TileMapLayer" parent="Background"]
+position = Vector2(0, -16)
+tile_set = SubResource("TileSet_f5jkx")
+
 [node name="Items" type="CanvasGroup" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_k1i5o")
 
 [node name="items" type="Node2D" parent="Items"]
