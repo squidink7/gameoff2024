@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=4 uid="uid://c7qjx6by4y4x1"]
+[gd_scene load_steps=15 format=4 uid="uid://c7qjx6by4y4x1"]
 
 [ext_resource type="PackedScene" uid="uid://da2kj0k548srg" path="res://scenes/objects/player/player.tscn" id="1_c4uh2"]
+[ext_resource type="Texture2D" uid="uid://i0qw6ec30dm7" path="res://assets/textures/world/sandstone_normal.png" id="1_vchqv"]
 [ext_resource type="Shader" path="res://scenes/objects/player/lightoccluder.gdshader" id="2_hvlfp"]
 [ext_resource type="Texture2D" uid="uid://dcjsk110e24mw" path="res://assets/textures/world/sandstone.png" id="2_tnaej"]
 [ext_resource type="Texture2D" uid="uid://cj22musgebly7" path="res://assets/textures/world/chest.png" id="5_ymal3"]
@@ -8,9 +9,18 @@
 [ext_resource type="Texture2D" uid="uid://cs8lc066c3r4y" path="res://assets/textures/objects/player/lightmask.svg" id="8_qk6sc"]
 [ext_resource type="Texture2D" uid="uid://vs7hx8x07da1" path="res://assets/textures/world/Door2.png" id="10_i6fmd"]
 
+[sub_resource type="Environment" id="Environment_p8vtl"]
+background_mode = 3
+glow_enabled = true
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_aiyui"]
+diffuse_texture = ExtResource("2_tnaej")
+normal_texture = ExtResource("1_vchqv")
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rsms"]
-texture = ExtResource("2_tnaej")
+texture = SubResource("CanvasTexture_aiyui")
 texture_region_size = Vector2i(32, 32)
+0:0/next_alternative_id = 2
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, -16, -8, -16, 8, 0, 16, 16, 8, 16, -8)
 1:0/0 = 0
@@ -49,6 +59,12 @@ shader = ExtResource("2_hvlfp")
 shader_parameter/occluder_texture = SubResource("ViewportTexture_t2xyv")
 
 [node name="Testworld" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_p8vtl")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="WorldEnvironment"]
+color = Color(0.472656, 0.472656, 0.472656, 1)
 
 [node name="Background" type="CanvasGroup" parent="."]
 
@@ -91,3 +107,8 @@ texture = ExtResource("8_qk6sc")
 [node name="Camera2D" type="Camera2D" parent="Player/LightmaskViewport/LightMask"]
 scale = Vector2(2.90909, 2.90909)
 zoom = Vector2(4, 4)
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+energy = 0.5
+texture = ExtResource("8_qk6sc")
+texture_scale = 0.3
