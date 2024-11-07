@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://b4prgqtqyb5nn"]
+[gd_scene load_steps=33 format=4 uid="uid://cwiruqkmolm0q"]
 
 [ext_resource type="Texture2D" uid="uid://by0s77k1n1c0a" path="res://assets/models/objects/player/detectiveFops_Hat.jpg" id="1_8ic8k"]
 [ext_resource type="Texture2D" uid="uid://wohgpcqloxoc" path="res://assets/models/objects/player/detectiveFops_Lamp.jpg" id="2_pc33v"]
