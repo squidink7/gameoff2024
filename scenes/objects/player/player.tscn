@@ -25,6 +25,7 @@ viewport_path = NodePath("Sprite/3DViewport")
 radius = 8.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Model")]
+motion_mode = 1
 script = ExtResource("1_ugjtn")
 Speed = 100.0
 Model = NodePath("Sprite/3DViewport/detectiveFops")
