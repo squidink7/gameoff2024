@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbmo13yl883qf"]
+
+[ext_resource type="Shader" path="res://scenes/objects/player/lightoccluder.gdshader" id="1_e66gq"]
+[ext_resource type="Script" path="res://scenes/world/items_layer/ItemsLayer.cs" id="1_kfbkp"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ithes"]
+viewport_path = NodePath("Player/LightmaskViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_va8vk"]
+resource_local_to_scene = true
+shader = ExtResource("1_e66gq")
+shader_parameter/occluder_texture = SubResource("ViewportTexture_ithes")
+
+[node name="ItemsLayer" type="CanvasGroup"]
+material = SubResource("ShaderMaterial_va8vk")
+script = ExtResource("1_kfbkp")

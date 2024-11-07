@@ -20,8 +20,9 @@ public partial class Player : CharacterBody2D
 	{
 		animationTree = Model.GetNode<AnimationTree>("AnimationTree");
 		animationTree.Active = true;
+		GetViewport().Connect("size_changed", Callable.From<Vector2I>((size) => { GetLightmaskViewport().Size = size; }));
 	}
-
+	
 	public override void _PhysicsProcess(double delta)
 	{
 		var inputVec = Input.GetVector("move_left", "move_right", "move_up", "move_down");
@@ -60,5 +61,10 @@ public partial class Player : CharacterBody2D
 		animationTree.Set("parameters/Blend2/blend_amount", walkVal);
 
 		MoveAndSlide();
+	}
+
+	public SubViewport GetLightmaskViewport()
+	{
+		return GetNode<SubViewport>("LightmaskViewport");
 	}
 }
