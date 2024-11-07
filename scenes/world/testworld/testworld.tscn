@@ -1,14 +1,11 @@
-[gd_scene load_steps=18 format=4 uid="uid://c7qjx6by4y4x1"]
+[gd_scene load_steps=12 format=4 uid="uid://c7qjx6by4y4x1"]
 
 [ext_resource type="PackedScene" uid="uid://da2kj0k548srg" path="res://scenes/objects/player/player.tscn" id="1_c4uh2"]
 [ext_resource type="Shader" path="res://scenes/objects/player/lightoccluder.gdshader" id="2_hvlfp"]
-[ext_resource type="Texture2D" uid="uid://b465jg71svfub" path="res://icon.svg" id="2_nnav5"]
 [ext_resource type="Texture2D" uid="uid://dcjsk110e24mw" path="res://assets/textures/world/sandstone.png" id="2_tnaej"]
-[ext_resource type="PackedScene" uid="uid://bc8m3aqmqalwy" path="res://scenes/objects/player/lightmask_viewport.tscn" id="3_7a7a1"]
-[ext_resource type="Texture2D" uid="uid://dba1i17rc183r" path="res://assets/textures/world/cracked_sandstone_plane.png" id="3_wvfgy"]
-[ext_resource type="Texture2D" uid="uid://bt340neeg4igv" path="res://assets/textures/world/cracked_sandstone_cube.png" id="4_ys81h"]
 [ext_resource type="Texture2D" uid="uid://cj22musgebly7" path="res://assets/textures/world/chest.png" id="5_ymal3"]
 [ext_resource type="Texture2D" uid="uid://c357fiyrs4kp3" path="res://assets/textures/world/Door.png" id="6_ppnwu"]
+[ext_resource type="Texture2D" uid="uid://cs8lc066c3r4y" path="res://assets/textures/objects/player/lightmask.svg" id="8_qk6sc"]
 [ext_resource type="Texture2D" uid="uid://vs7hx8x07da1" path="res://assets/textures/world/Door2.png" id="10_i6fmd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rsms"]
@@ -54,28 +51,8 @@ tile_shape = 1
 tile_size = Vector2i(32, 16)
 sources/0 = SubResource("TileSetAtlasSource_7rsms")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73c5u"]
-texture = ExtResource("4_ys81h")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6btpv"]
-texture = ExtResource("3_wvfgy")
-texture_region_size = Vector2i(32, 16)
-0:0/0 = 0
-1:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_f5jkx"]
-tile_shape = 1
-tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_73c5u")
-sources/1 = SubResource("TileSetAtlasSource_6btpv")
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_t2xyv"]
-viewport_path = NodePath(".")
+viewport_path = NodePath("Player/LightmaskViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k1i5o"]
 resource_local_to_scene = true
@@ -86,46 +63,42 @@ shader_parameter/occluder_texture = SubResource("ViewportTexture_t2xyv")
 
 [node name="Background" type="CanvasGroup" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(424, 160)
-scale = Vector2(10.625, 4.75)
-texture = ExtResource("2_nnav5")
-
-[node name="FloorTiles" type="TileMapLayer" parent="Background"]
-tile_map_data = PackedByteArray("AAAJAAcAAAABAAAAAAAKAAUAAAABAAAAAAALAAQAAAABAAAAAAAKAAMAAAABAAAAAAAKAAIAAAABAAAAAAAJAAMAAAABAAAAAAAIAAUAAAABAAAAAAAJAAYAAAABAAAAAAAJAAUAAAABAAAAAAAKAAQAAAABAAAAAAAIAAQAAAABAAAAAAAIAAMAAAABAAAAAAAJAAIAAAABAAAAAAAJAAEAAAABAAAAAAAHAAMAAAABAAAAAAAIAAEAAAABAAAAAAAJAAAAAAABAAAAAAAHAAIAAAABAAAAAAAHAAEAAAABAAAAAAAIAAAAAAABAAAAAAAIAP//AAABAAAAAAALAAIAAAABAAAAAAALAAMAAAABAAAAAAAKAAEAAAABAAAAAAAKAAAAAAABAAAAAAAJAP//AAABAAAAAAAJAP7/AAABAAAAAAAMAAIAAAABAAAAAAALAAEAAAABAAAAAAALAAAAAAABAAAAAAAKAP//AAABAAAAAAAKAP7/AAABAAAAAAAJAP3/AAAAAAEAAAAJAPv/AAAAAAEAAAAJAPn/AAAAAAEAAAAKAP3/AAABAAEAAAALAP7/AAABAAEAAAALAP//AAABAAEAAAAMAAAAAAABAAEAAAAMAAEAAAAAAAEAAAAMAP//AAAAAAEAAAAMAP7/AAABAAEAAAALAP3/AAABAAEAAAALAPz/AAABAAEAAAAKAPv/AAABAAEAAAAKAPn/AAABAAEAAAALAPr/AAABAAEAAAALAPv/AAABAAEAAAAMAPz/AAABAAEAAAAMAP3/AAAAAAEAAAAIAP3/AAACAAEAAAAIAP7/AAACAAEAAAAHAP//AAACAAEAAAAHAAAAAAACAAEAAAAGAAEAAAAAAAEAAAAIAPv/AAACAAEAAAAIAPz/AAACAAEAAAAHAP3/AAACAAEAAAAHAPz/AAACAAEAAAAGAP3/AAAAAAEAAAAHAP7/AAACAAEAAAAGAP//AAAAAAEAAAAHAPv/AAACAAEAAAAIAPr/AAACAAEAAAAIAPn/AAACAAEAAAAJAPf/AAADAAEAAAAKAPf/AAAEAAEAAAALAPj/AAAEAAEAAAALAPn/AAAEAAEAAAAMAPr/AAAEAAEAAAAMAPv/AAADAAEAAAAIAPf/AAAFAAEAAAAIAPj/AAAFAAEAAAAHAPn/AAAFAAEAAAAHAPr/AAAFAAEAAAAGAPv/AAADAAEAAAAMAAMAAAACAAEAAAAGAAMAAAABAAEAAAAJAAkAAAACAAAAAAAKAAgAAAADAAAAAAAKAAcAAAADAAAAAAALAAYAAAADAAAAAAALAAUAAAADAAAAAAAMAAQAAAADAAAAAAAJAAgAAAAEAAAAAAAIAAcAAAAEAAAAAAAIAAYAAAAEAAAAAAAHAAUAAAAEAAAAAAAHAAQAAAAEAAAAAAANAAQAAAAFAAAAAAAKAAYAAAABAAAAAAAJAAQAAAABAAAAAAAIAAIAAAABAAAAAAA=")
+[node name="RoomTiles" type="TileMapLayer" parent="Background"]
+tile_map_data = PackedByteArray("AAD8//n/AAADAAEAAAD8//v/AAAAAAEAAAD8//3/AAAAAAEAAAD8////AAAAAAEAAAD8/wEAAAABAAEAAAD9//f/AAAFAAEAAAD9//j/AAAFAAEAAAD9//n/AAACAAEAAAD9//r/AAACAAEAAAD9//v/AAACAAEAAAD9//z/AAACAAEAAAD9//3/AAACAAEAAAD9//7/AAACAAEAAAD9////AAABAAAAAAD9/wAAAAABAAAAAAD9/wEAAAABAAAAAAD9/wIAAAAEAAAAAAD9/wMAAAAEAAAAAAD+//X/AAAFAAEAAAD+//b/AAAFAAEAAAD+//f/AAACAAEAAAD+//j/AAACAAEAAAD+//n/AAACAAEAAAD+//r/AAACAAEAAAD+//v/AAACAAEAAAD+//z/AAACAAEAAAD+//3/AAABAAAAAAD+//7/AAABAAAAAAD+////AAABAAAAAAD+/wAAAAABAAAAAAD+/wEAAAABAAAAAAD+/wIAAAABAAAAAAD+/wMAAAABAAAAAAD+/wQAAAAEAAAAAAD+/wUAAAAEAAAAAAD///X/AAADAAEAAAD///f/AAAAAAEAAAD///n/AAAAAAEAAAD///v/AAAAAAEAAAD///z/AAABAAAAAAD///3/AAABAAAAAAD///7/AAABAAAAAAD/////AAABAAAAAAD//wAAAAABAAAAAAD//wEAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAD//wYAAAAEAAAAAAD//wcAAAACAAAAAAAAAPX/AAAEAAEAAAAAAPf/AAABAAEAAAAAAPn/AAABAAEAAAAAAPv/AAABAAEAAAAAAPz/AAABAAAAAAAAAP3/AAABAAAAAAAAAP7/AAABAAAAAAAAAP//AAABAAAAAAAAAAAAAAABAAAAAAAAAAEAAAABAAAAAAAAAAIAAAABAAAAAAAAAAMAAAABAAAAAAAAAAQAAAABAAAAAAAAAAUAAAADAAAAAAAAAAYAAAADAAAAAAABAPb/AAAEAAEAAAABAPf/AAAEAAEAAAABAPj/AAABAAEAAAABAPn/AAABAAEAAAABAPr/AAABAAEAAAABAPv/AAABAAEAAAABAPz/AAABAAEAAAABAP3/AAABAAEAAAABAP7/AAABAAAAAAABAP//AAABAAAAAAABAAAAAAABAAAAAAABAAEAAAABAAAAAAABAAIAAAABAAAAAAABAAMAAAADAAAAAAABAAQAAAADAAAAAAACAPj/AAAEAAEAAAACAPn/AAADAAEAAAACAPr/AAABAAEAAAACAPv/AAAAAAEAAAACAPz/AAABAAEAAAACAP3/AAAAAAEAAAACAP7/AAABAAEAAAACAP//AAAAAAEAAAACAAAAAAABAAAAAAACAAEAAAACAAEAAAACAAIAAAADAAAAAAADAAIAAAAFAAAAAAA=")
 tile_set = SubResource("TileSet_4nnvh")
 
-[node name="FloorTiles2" type="TileMapLayer" parent="Background"]
-position = Vector2(0, -16)
-tile_set = SubResource("TileSet_f5jkx")
-
-[node name="Chest" type="Sprite2D" parent="Background"]
-position = Vector2(336, -14)
-texture = ExtResource("5_ymal3")
-
-[node name="Door" type="Sprite2D" parent="Background"]
-position = Vector2(400, 0)
-texture = ExtResource("6_ppnwu")
-
 [node name="Items" type="CanvasGroup" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_k1i5o")
 
-[node name="items" type="Node2D" parent="Items"]
+[node name="Chest" type="Sprite2D" parent="Items"]
+position = Vector2(16, -30)
+texture = ExtResource("5_ymal3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Items/items"]
-texture = ExtResource("2_nnav5")
+[node name="Door" type="Sprite2D" parent="Items"]
+position = Vector2(80, -16)
+texture = ExtResource("6_ppnwu")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Items/items"]
-position = Vector2(216, 88)
-texture = ExtResource("2_nnav5")
-
-[node name="LightmaskViewport" parent="." instance=ExtResource("3_7a7a1")]
+[node name="Door2" type="Sprite2D" parent="Items"]
+position = Vector2(95, -9)
+texture = ExtResource("10_i6fmd")
 
 [node name="Player" parent="." instance=ExtResource("1_c4uh2")]
 
 [node name="WorldCamera" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
 
-[node name="Door2" type="Sprite2D" parent="."]
-position = Vector2(415, 7)
-texture = ExtResource("10_i6fmd")
+[node name="LightmaskViewport" type="SubViewport" parent="Player"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="LightMask" type="Sprite2D" parent="Player/LightmaskViewport"]
+light_mask = 0
+visibility_layer = 2
+scale = Vector2(0.34375, 0.34375)
+texture = ExtResource("8_qk6sc")
+
+[node name="Camera2D" type="Camera2D" parent="Player/LightmaskViewport/LightMask"]
+scale = Vector2(2.90909, 2.90909)
+zoom = Vector2(4, 4)

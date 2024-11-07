@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qymrp68sgx2v"
-path.s3tc="res://.godot/imported/detectiveFops_Body.jpg-0958e7f2e217614e3b45c2264f7252d4.s3tc.ctex"
+uid="uid://wohgpcqloxoc"
+path.s3tc="res://.godot/imported/detectiveFops_Lamp.jpg-e3558e5502658d29831bc2ed678ea619.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "521492a12c2dcfcd161329c6ada9d1bc"
+"md5": "052a8da087f91cc0d1ee2233683fe332"
 }
 
 [deps]
 
-source_file="res://assets/textures/objects/detectiveFops_Body.jpg"
-dest_files=["res://.godot/imported/detectiveFops_Body.jpg-0958e7f2e217614e3b45c2264f7252d4.s3tc.ctex"]
+source_file="res://assets/models/objects/player/detectiveFops_Lamp.jpg"
+dest_files=["res://.godot/imported/detectiveFops_Lamp.jpg-e3558e5502658d29831bc2ed678ea619.s3tc.ctex"]
 
 [params]
 

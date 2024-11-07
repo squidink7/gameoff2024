@@ -5,5 +5,5 @@ uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_n
 
 void fragment() {
 	COLOR = texture(screen_texture, SCREEN_UV);
-	COLOR.a = COLOR.a * texture(occluder_texture, SCREEN_UV).a;
+	COLOR.a *= float(texture(occluder_texture, SCREEN_UV).a);
 }

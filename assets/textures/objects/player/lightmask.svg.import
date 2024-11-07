@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4pyi21s1dpsf"
-path="res://.godot/imported/detectiveFops_Head.png-9ece9d5ead98c43c6a7186cdef4d681c.ctex"
+uid="uid://cs8lc066c3r4y"
+path="res://.godot/imported/lightmask.svg-323497c7b83853b120ecde87f4247908.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "fc08d39f0605e4d6860f92d281685a72"
 }
 
 [deps]
 
-source_file="res://assets/textures/objects/detectiveFops_Head.png"
-dest_files=["res://.godot/imported/detectiveFops_Head.png-9ece9d5ead98c43c6a7186cdef4d681c.ctex"]
+source_file="res://assets/textures/objects/player/lightmask.svg"
+dest_files=["res://.godot/imported/lightmask.svg-323497c7b83853b120ecde87f4247908.ctex"]
 
 [params]
 
@@ -24,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -35,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
