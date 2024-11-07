@@ -2,24 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qymrp68sgx2v"
-path.s3tc="res://.godot/imported/detectiveFops_Body.jpg-0958e7f2e217614e3b45c2264f7252d4.s3tc.ctex"
+uid="uid://c4pyi21s1dpsf"
+path="res://.godot/imported/detectiveFops_Head.png-63165c0313787ea507713576db9c7167.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
-"md5": "521492a12c2dcfcd161329c6ada9d1bc"
+"md5": "fc08d39f0605e4d6860f92d281685a72"
 }
 
 [deps]
 
-source_file="res://assets/textures/objects/detectiveFops_Body.jpg"
-dest_files=["res://.godot/imported/detectiveFops_Body.jpg-0958e7f2e217614e3b45c2264f7252d4.s3tc.ctex"]
+source_file="res://assets/models/objects/player/detectiveFops_Head.png"
+dest_files=["res://.godot/imported/detectiveFops_Head.png-63165c0313787ea507713576db9c7167.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -35,4 +34,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

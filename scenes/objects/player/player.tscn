@@ -1,33 +1,43 @@
 [gd_scene load_steps=5 format=3 uid="uid://da2kj0k548srg"]
 
 [ext_resource type="Script" path="res://scenes/objects/player/Player.cs" id="1_ugjtn"]
-[ext_resource type="PackedScene" uid="uid://ddvcks2id6uf6" path="res://assets/textures/objects/detectiveFops.glb" id="2_6wx74"]
+[ext_resource type="PackedScene" uid="uid://ddvcks2id6uf6" path="res://assets/models/objects/player/detectiveFops.glb" id="2_ai7ju"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_n86pn"]
 viewport_path = NodePath("Sprite/3DViewport")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6hibk"]
-radius = 64.0
+radius = 16.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Model")]
 script = ExtResource("1_ugjtn")
 Speed = 100.0
+Model = NodePath("Sprite/3DViewport/detectiveFops")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
+position = Vector2(-9.53674e-07, -4.29153e-06)
+scale = Vector2(0.125, 0.125)
 texture = SubResource("ViewportTexture_n86pn")
 
 [node name="3DViewport" type="SubViewport" parent="Sprite"]
 transparent_bg = true
 
 [node name="Camera3D" type="Camera3D" parent="Sprite/3DViewport"]
-transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 1.70806, 2.61261, 1.70806)
-fov = 60.0
+transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 1.5, 2, 1.5)
+fov = 70.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Sprite/3DViewport/Camera3D"]
 
-[node name="detectiveFops" parent="Sprite/3DViewport" instance=ExtResource("2_6wx74")]
+[node name="detectiveFops" parent="Sprite/3DViewport" instance=ExtResource("2_ai7ju")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Sprite/3DViewport/detectiveFops/Armature" index="0"]
+bones/2/rotation = Quaternion(-8.38534e-08, -7.00391e-09, 0.0573147, 0.998356)
+bones/3/rotation = Quaternion(-0.0408998, -0.0476852, -0.701304, 0.710088)
+bones/4/rotation = Quaternion(3.74292e-07, -3.92791e-07, 0.693182, 0.720763)
+bones/5/rotation = Quaternion(0.00762029, 0.0270938, -0.204056, 0.978555)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6hibk")
+
+[editable path="Sprite/3DViewport/detectiveFops"]

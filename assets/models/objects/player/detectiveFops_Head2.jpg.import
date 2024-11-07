@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7y0oy5s7gdn2"
-path.s3tc="res://.godot/imported/detectiveFops_Tail2.jpg-03f36b9afbc67086f7d711407913a33a.s3tc.ctex"
+uid="uid://brawaxo1exssm"
+path.s3tc="res://.godot/imported/detectiveFops_Head2.jpg-927234fdfc84e56e40240cfead64b32f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "b9c0a1cbf21f987af22f7e36327d9ddb"
+"md5": "27b32d2453dce1564fcab4e6acb42838"
 }
 
 [deps]
 
-source_file="res://assets/textures/objects/detectiveFops_Tail2.jpg"
-dest_files=["res://.godot/imported/detectiveFops_Tail2.jpg-03f36b9afbc67086f7d711407913a33a.s3tc.ctex"]
+source_file="res://assets/models/objects/player/detectiveFops_Head2.jpg"
+dest_files=["res://.godot/imported/detectiveFops_Head2.jpg-927234fdfc84e56e40240cfead64b32f.s3tc.ctex"]
 
 [params]
 

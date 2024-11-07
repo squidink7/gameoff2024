@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ddvcks2id6uf6"
-path="res://.godot/imported/detectiveFops.glb-ffc153e35f20a2cb89677c2af170ec8c.scn"
+path="res://.godot/imported/detectiveFops.glb-6a3fc5771b5afe842e54264c34ab216e.scn"
 
 [deps]
 
-source_file="res://assets/textures/objects/detectiveFops.glb"
-dest_files=["res://.godot/imported/detectiveFops.glb-ffc153e35f20a2cb89677c2af170ec8c.scn"]
+source_file="res://assets/models/objects/player/detectiveFops.glb"
+dest_files=["res://.godot/imported/detectiveFops.glb-6a3fc5771b5afe842e54264c34ab216e.scn"]
 
 [params]
 

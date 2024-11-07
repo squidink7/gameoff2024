@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yj7e25u6jhd5"
-path.s3tc="res://.godot/imported/detectiveFops_Head.jpg-b667e6cc2b5118c5d317f16bbd2f9604.s3tc.ctex"
+uid="uid://bkleoguc2unbk"
+path.s3tc="res://.godot/imported/detectiveFops_Body2.jpg-bc665dddd762c31cf6a58628cafb9314.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "440a12ec29f6ed36ed15adb8f01c17af"
+"md5": "146794595b806e812b09cfd21244928e"
 }
 
 [deps]
 
-source_file="res://assets/textures/objects/detectiveFops_Head.jpg"
-dest_files=["res://.godot/imported/detectiveFops_Head.jpg-b667e6cc2b5118c5d317f16bbd2f9604.s3tc.ctex"]
+source_file="res://assets/models/objects/player/detectiveFops_Body2.jpg"
+dest_files=["res://.godot/imported/detectiveFops_Body2.jpg-bc665dddd762c31cf6a58628cafb9314.s3tc.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=2
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1

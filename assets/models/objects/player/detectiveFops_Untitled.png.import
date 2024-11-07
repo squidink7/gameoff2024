@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rk4ytt1365ns"
-path.s3tc="res://.godot/imported/detectiveFops_Untitled.png-6c598c81015a1b4ff518fbbf6f1be5a6.s3tc.ctex"
+path.s3tc="res://.godot/imported/detectiveFops_Untitled.png-1c8b3dfdc98571061239d88ed5c19ccd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/textures/objects/detectiveFops_Untitled.png"
-dest_files=["res://.godot/imported/detectiveFops_Untitled.png-6c598c81015a1b4ff518fbbf6f1be5a6.s3tc.ctex"]
+source_file="res://assets/models/objects/player/detectiveFops_Untitled.png"
+dest_files=["res://.godot/imported/detectiveFops_Untitled.png-1c8b3dfdc98571061239d88ed5c19ccd.s3tc.ctex"]
 
 [params]
 
