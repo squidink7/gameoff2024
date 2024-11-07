@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://c7qjx6by4y4x1"]
+[gd_scene load_steps=18 format=4 uid="uid://c7qjx6by4y4x1"]
 
 [ext_resource type="PackedScene" uid="uid://da2kj0k548srg" path="res://scenes/objects/player/player.tscn" id="1_c4uh2"]
 [ext_resource type="Shader" path="res://scenes/objects/player/lightoccluder.gdshader" id="2_hvlfp"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bt340neeg4igv" path="res://assets/textures/world/cracked_sandstone_cube.png" id="4_ys81h"]
 [ext_resource type="Texture2D" uid="uid://cj22musgebly7" path="res://assets/textures/world/chest.png" id="5_ymal3"]
 [ext_resource type="Texture2D" uid="uid://c357fiyrs4kp3" path="res://assets/textures/world/Door.png" id="6_ppnwu"]
+[ext_resource type="Texture2D" uid="uid://vs7hx8x07da1" path="res://assets/textures/world/Door2.png" id="10_i6fmd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rsms"]
 texture = ExtResource("2_tnaej")
@@ -124,3 +125,7 @@ texture = ExtResource("2_nnav5")
 [node name="Player" parent="." instance=ExtResource("1_c4uh2")]
 
 [node name="WorldCamera" type="Camera2D" parent="Player"]
+
+[node name="Door2" type="Sprite2D" parent="."]
+position = Vector2(415, 7)
+texture = ExtResource("10_i6fmd")
