@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://da2kj0k548srg"]
+[gd_scene load_steps=12 format=3 uid="uid://da2kj0k548srg"]
 
 [ext_resource type="Script" path="res://scenes/objects/player/Player.cs" id="1_ugjtn"]
 [ext_resource type="PackedScene" uid="uid://ddvcks2id6uf6" path="res://assets/models/objects/player/detectiveFops.glb" id="2_ai7ju"]
@@ -20,6 +20,25 @@ glow_enabled = true
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_n86pn"]
 viewport_path = NodePath("Sprite/3DViewport")
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_vnud6"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6ll8r"]
+animation = &"BriskWalk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dk3cc"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_8wo0d"]
+graph_offset = Vector2(-112, -42)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_vnud6")
+nodes/Blend2/position = Vector2(540, 0)
+nodes/BriskWalk/node = SubResource("AnimationNodeAnimation_6ll8r")
+nodes/BriskWalk/position = Vector2(120, 480)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_dk3cc")
+nodes/Idle/position = Vector2(140, 120)
+nodes/output/position = Vector2(960, 200)
+node_connections = [&"Blend2", 0, &"Idle", &"Blend2", 1, &"BriskWalk", &"output", 0, &"Blend2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6hibk"]
 radius = 8.0
@@ -52,12 +71,18 @@ fov = 70.0
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Sprite/3DViewport/detectiveFops/Armature" index="0"]
-bones/0/position = Vector3(0, -1.40069, 0)
-bones/1/rotation = Quaternion(0.00189931, 0.00172053, 0.0918746, 0.995767)
-bones/2/rotation = Quaternion(-7.51406e-05, -0.000119994, 0.0555715, 0.998455)
-bones/3/rotation = Quaternion(2.1514e-07, 2.07508e-07, -0.669193, 0.743089)
-bones/4/rotation = Quaternion(3.74292e-07, -3.92791e-07, 0.693182, 0.720763)
-bones/5/rotation = Quaternion(0.00762029, 0.0270938, -0.204056, 0.978555)
+bones/1/rotation = Quaternion(-8.34305e-17, 4.88282e-09, -0.0216957, 0.999765)
+bones/2/rotation = Quaternion(0.00546634, 0.0130729, 0.0593433, 0.998137)
+bones/3/rotation = Quaternion(-0.0405148, -0.0510937, -0.724295, 0.6864)
+bones/4/rotation = Quaternion(0.0452776, 0.063087, 0.691089, 0.718587)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.18304, 0.0206422, -0.184189, 0.965477)
+bones/5/scale = Vector3(1, 1, 1)
+
+[node name="AnimationTree" type="AnimationTree" parent="Sprite/3DViewport/detectiveFops"]
+tree_root = SubResource("AnimationNodeBlendTree_8wo0d")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Blend2/blend_amount = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)

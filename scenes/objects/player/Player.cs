@@ -5,9 +5,22 @@ public partial class Player : CharacterBody2D
 {
 	[Export] float Speed = 10;
 	[Export] Node3D Model;
-	[Export] float SmoothingFactor = 0.1f; // Adjust this value for more or less smoothing
+	[Export] float SmoothingFactor = 0.1f; // For velocity
+	[Export] float WalkSmoothingFactor = 0.1f; // For walk value
+	[Export] float RotationSmoothingFactor = 0.1f; // For rotation
 
 	private Vector2 targetVelocity = Vector2.Zero;
+	private float targetWalkVal = 0.0f;
+	private float walkVal = 0.0f;
+	private float targetRotation = 0.0f;
+	private float rotation = 0.0f;
+	private AnimationTree animationTree;
+
+	public override void _Ready()
+	{
+		animationTree = Model.GetNode<AnimationTree>("AnimationTree");
+		animationTree.Active = true;
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -15,40 +28,36 @@ public partial class Player : CharacterBody2D
 
 		Vector2 movementVec = Vector2.Zero;
 
-		// Check for diagonal input
 		if (inputVec.X != 0 && inputVec.Y != 0)
 		{
-			// Apply isometric transformation for diagonal movement
 			movementVec = new Vector2(
-				inputVec.X, // Skew the x-axis
-				inputVec.Y / 2 // Skew the y-axis
+				inputVec.X,
+				inputVec.Y / 2
 			);
 		}
 		else
 		{
-			// Use screen-relative movement for non-diagonal input
 			movementVec = inputVec;
 		}
 
-		// Walking
 		if (movementVec != Vector2.Zero)
 		{
-			// Rotate towards movement direction
-			Model.Rotation = Vector3.Up * (-movementVec.Angle() + Mathf.Pi / 4);
-
-			// Play animation
-			Model.GetNode<AnimationPlayer>("AnimationPlayer").Play("BriskWalk");
+			targetRotation = -movementVec.Angle() + Mathf.Pi / 4;
+			targetWalkVal = 1.0f;
 		}
 		else
 		{
-			Model.GetNode<AnimationPlayer>("AnimationPlayer").Play("Idle");
+			targetWalkVal = 0f;
 		}
 
-		// Calculate target velocity
-		targetVelocity = movementVec.Normalized() * Speed;
+		walkVal = Mathf.Lerp(walkVal, targetWalkVal, WalkSmoothingFactor);
+		rotation = Mathf.LerpAngle(rotation, targetRotation, RotationSmoothingFactor);
+		Model.Rotation = new Vector3(0, rotation, 0);
 
-		// Smoothly interpolate current velocity towards target velocity
+		targetVelocity = movementVec.Normalized() * Speed;
 		Velocity = Velocity.Lerp(targetVelocity, SmoothingFactor);
+
+		animationTree.Set("parameters/Blend2/blend_amount", walkVal);
 
 		MoveAndSlide();
 	}
