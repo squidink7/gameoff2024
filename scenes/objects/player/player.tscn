@@ -7,7 +7,7 @@
 viewport_path = NodePath("Sprite/3DViewport")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6hibk"]
-radius = 16.0
+radius = 8.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Model")]
 script = ExtResource("1_ugjtn")
@@ -32,12 +32,15 @@ fov = 70.0
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Sprite/3DViewport/detectiveFops/Armature" index="0"]
-bones/2/rotation = Quaternion(-8.38534e-08, -7.00391e-09, 0.0573147, 0.998356)
-bones/3/rotation = Quaternion(-0.0408998, -0.0476852, -0.701304, 0.710088)
+bones/0/position = Vector3(0, -1.75062, 0)
+bones/1/rotation = Quaternion(0.0117712, -1.92337e-08, 0.143292, 0.98961)
+bones/2/rotation = Quaternion(0.012544, 0.0276635, -0.0235309, 0.999262)
+bones/3/rotation = Quaternion(-0.0397845, -0.048518, -0.709971, 0.70143)
 bones/4/rotation = Quaternion(3.74292e-07, -3.92791e-07, 0.693182, 0.720763)
 bones/5/rotation = Quaternion(0.00762029, 0.0270938, -0.204056, 0.978555)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_6hibk")
 
 [editable path="Sprite/3DViewport/detectiveFops"]
