@@ -61,6 +61,47 @@ public partial class Player : CharacterBody2D
 		animationTree.Set("parameters/Blend2/blend_amount", walkVal);
 
 		MoveAndSlide();
+
+		GetNearestItem();
+	}
+
+	Node2D? GetNearestItem()
+	{
+		float closestDistance = int.MaxValue;
+		Item closestItem = null;
+
+
+		foreach (var body in GetNode<Area2D>("InteractionArea").GetOverlappingBodies())
+		{
+			if (body is Item item) // body is Item
+			{
+				var distance = Mathf.Abs((item.GlobalPosition - GlobalPosition).LengthSquared());
+				if (distance < closestDistance)
+				{
+					closestDistance = distance;
+					closestItem = item;
+					if (closestItem != null)
+					{
+						item.Highlighted = true;
+					}
+					item.Highlighted = true;
+				}
+				else
+				{
+					item.Highlighted = false;
+				}
+			}
+		}
+
+		return closestItem;
+	}
+
+	void ItemExit(Node2D body)
+	{
+		if (body is Item item)
+		{
+			item.Highlighted = false;
+		}
 	}
 
 	public SubViewport GetLightmaskViewport()

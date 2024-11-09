@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c7qjx6by4y4x1"]
+[gd_scene load_steps=16 format=4 uid="uid://c7qjx6by4y4x1"]
 
 [ext_resource type="PackedScene" uid="uid://da2kj0k548srg" path="res://scenes/objects/player/player.tscn" id="1_c4uh2"]
 [ext_resource type="Texture2D" uid="uid://i0qw6ec30dm7" path="res://assets/textures/world/sandstone_normal.png" id="1_vchqv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" path="res://scenes/objects/player/lightoccluder.gdshader" id="4_s8moi"]
 [ext_resource type="Texture2D" uid="uid://cj22musgebly7" path="res://assets/textures/world/chest.png" id="5_ymal3"]
 [ext_resource type="Texture2D" uid="uid://c357fiyrs4kp3" path="res://assets/textures/world/Door.png" id="6_ppnwu"]
+[ext_resource type="PackedScene" uid="uid://b6nft1x2ebufa" path="res://scenes/objects/items/item/item.tscn" id="8_qbb16"]
 [ext_resource type="Texture2D" uid="uid://vs7hx8x07da1" path="res://assets/textures/world/Door2.png" id="10_i6fmd"]
 
 [sub_resource type="Environment" id="Environment_p8vtl"]
@@ -51,7 +52,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7rsms")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_wjnpc"]
-viewport_path = NodePath("Player/LightmaskViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8w8qi"]
 resource_local_to_scene = true
@@ -86,5 +86,8 @@ texture = ExtResource("6_ppnwu")
 [node name="Door2" type="Sprite2D" parent="ItemsLayer"]
 position = Vector2(95, -9)
 texture = ExtResource("10_i6fmd")
+
+[node name="Item" parent="ItemsLayer" instance=ExtResource("8_qbb16")]
+position = Vector2(-69, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_c4uh2")]
