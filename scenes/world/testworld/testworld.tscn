@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://da2kj0k548srg" path="res://scenes/objects/player/player.tscn" id="1_c4uh2"]
 [ext_resource type="Texture2D" uid="uid://i0qw6ec30dm7" path="res://assets/textures/world/sandstone_normal.png" id="1_vchqv"]
-[ext_resource type="Shader" path="res://scenes/objects/player/lightoccluder.gdshader" id="2_hvlfp"]
 [ext_resource type="Texture2D" uid="uid://dcjsk110e24mw" path="res://assets/textures/world/sandstone.png" id="2_tnaej"]
+[ext_resource type="PackedScene" uid="uid://cbmo13yl883qf" path="res://scenes/world/items_layer/items_layer.tscn" id="3_d45xl"]
+[ext_resource type="Shader" path="res://scenes/objects/player/lightoccluder.gdshader" id="4_s8moi"]
 [ext_resource type="Texture2D" uid="uid://cj22musgebly7" path="res://assets/textures/world/chest.png" id="5_ymal3"]
 [ext_resource type="Texture2D" uid="uid://c357fiyrs4kp3" path="res://assets/textures/world/Door.png" id="6_ppnwu"]
-[ext_resource type="Texture2D" uid="uid://cs8lc066c3r4y" path="res://assets/textures/objects/player/lightmask.svg" id="8_qk6sc"]
 [ext_resource type="Texture2D" uid="uid://vs7hx8x07da1" path="res://assets/textures/world/Door2.png" id="10_i6fmd"]
 
 [sub_resource type="Environment" id="Environment_p8vtl"]
@@ -50,13 +50,13 @@ tile_size = Vector2i(32, 16)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7rsms")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_t2xyv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wjnpc"]
 viewport_path = NodePath("Player/LightmaskViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k1i5o"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8w8qi"]
 resource_local_to_scene = true
-shader = ExtResource("2_hvlfp")
-shader_parameter/occluder_texture = SubResource("ViewportTexture_t2xyv")
+shader = ExtResource("4_s8moi")
+shader_parameter/occluder_texture = SubResource("ViewportTexture_wjnpc")
 
 [node name="Testworld" type="Node2D"]
 
@@ -64,7 +64,7 @@ shader_parameter/occluder_texture = SubResource("ViewportTexture_t2xyv")
 environment = SubResource("Environment_p8vtl")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="WorldEnvironment"]
-color = Color(0.472656, 0.472656, 0.472656, 1)
+color = Color(0.25, 0.25, 0.25, 1)
 
 [node name="Background" type="CanvasGroup" parent="."]
 
@@ -72,43 +72,19 @@ color = Color(0.472656, 0.472656, 0.472656, 1)
 tile_map_data = PackedByteArray("AAD8//n/AAADAAEAAAD8//v/AAAAAAEAAAD8//3/AAAAAAEAAAD8////AAAAAAEAAAD8/wEAAAABAAEAAAD9//f/AAAFAAEAAAD9//j/AAAFAAEAAAD9//n/AAACAAEAAAD9//r/AAACAAEAAAD9//v/AAACAAEAAAD9//z/AAACAAEAAAD9//3/AAACAAEAAAD9//7/AAACAAEAAAD9////AAABAAAAAAD9/wAAAAABAAAAAAD9/wEAAAABAAAAAAD9/wIAAAAEAAAAAAD9/wMAAAAEAAAAAAD+//X/AAAFAAEAAAD+//b/AAAFAAEAAAD+//f/AAACAAEAAAD+//j/AAACAAEAAAD+//n/AAACAAEAAAD+//r/AAACAAEAAAD+//v/AAACAAEAAAD+//z/AAACAAEAAAD+//3/AAABAAAAAAD+//7/AAABAAAAAAD+////AAABAAAAAAD+/wAAAAABAAAAAAD+/wEAAAABAAAAAAD+/wIAAAABAAAAAAD+/wMAAAABAAAAAAD+/wQAAAAEAAAAAAD+/wUAAAAEAAAAAAD///X/AAADAAEAAAD///f/AAAAAAEAAAD///n/AAAAAAEAAAD///v/AAAAAAEAAAD///z/AAABAAAAAAD///3/AAABAAAAAAD///7/AAABAAAAAAD/////AAABAAAAAAD//wAAAAABAAAAAAD//wEAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAD//wYAAAAEAAAAAAD//wcAAAACAAAAAAAAAPX/AAAEAAEAAAAAAPf/AAABAAEAAAAAAPn/AAABAAEAAAAAAPv/AAABAAEAAAAAAPz/AAABAAAAAAAAAP3/AAABAAAAAAAAAP7/AAABAAAAAAAAAP//AAABAAAAAAAAAAAAAAABAAAAAAAAAAEAAAABAAAAAAAAAAIAAAABAAAAAAAAAAMAAAABAAAAAAAAAAQAAAABAAAAAAAAAAUAAAADAAAAAAAAAAYAAAADAAAAAAABAPb/AAAEAAEAAAABAPf/AAAEAAEAAAABAPj/AAABAAEAAAABAPn/AAABAAEAAAABAPr/AAABAAEAAAABAPv/AAABAAEAAAABAPz/AAABAAEAAAABAP3/AAABAAEAAAABAP7/AAABAAAAAAABAP//AAABAAAAAAABAAAAAAABAAAAAAABAAEAAAABAAAAAAABAAIAAAABAAAAAAABAAMAAAADAAAAAAABAAQAAAADAAAAAAACAPj/AAAEAAEAAAACAPn/AAADAAEAAAACAPr/AAABAAEAAAACAPv/AAAAAAEAAAACAPz/AAABAAEAAAACAP3/AAAAAAEAAAACAP7/AAABAAEAAAACAP//AAAAAAEAAAACAAAAAAABAAAAAAACAAEAAAACAAEAAAACAAIAAAADAAAAAAADAAIAAAAFAAAAAAA=")
 tile_set = SubResource("TileSet_4nnvh")
 
-[node name="Items" type="CanvasGroup" parent="."]
-material = SubResource("ShaderMaterial_k1i5o")
+[node name="ItemsLayer" parent="." instance=ExtResource("3_d45xl")]
+material = SubResource("ShaderMaterial_8w8qi")
 
-[node name="Chest" type="Sprite2D" parent="Items"]
+[node name="Chest" type="Sprite2D" parent="ItemsLayer"]
 position = Vector2(16, -30)
 texture = ExtResource("5_ymal3")
 
-[node name="Door" type="Sprite2D" parent="Items"]
+[node name="Door" type="Sprite2D" parent="ItemsLayer"]
 position = Vector2(80, -16)
 texture = ExtResource("6_ppnwu")
 
-[node name="Door2" type="Sprite2D" parent="Items"]
+[node name="Door2" type="Sprite2D" parent="ItemsLayer"]
 position = Vector2(95, -9)
 texture = ExtResource("10_i6fmd")
 
 [node name="Player" parent="." instance=ExtResource("1_c4uh2")]
-
-[node name="WorldCamera" type="Camera2D" parent="Player"]
-zoom = Vector2(4, 4)
-
-[node name="LightmaskViewport" type="SubViewport" parent="Player"]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(1152, 648)
-render_target_update_mode = 4
-
-[node name="LightMask" type="Sprite2D" parent="Player/LightmaskViewport"]
-light_mask = 0
-visibility_layer = 2
-scale = Vector2(0.34375, 0.34375)
-texture = ExtResource("8_qk6sc")
-
-[node name="Camera2D" type="Camera2D" parent="Player/LightmaskViewport/LightMask"]
-scale = Vector2(2.90909, 2.90909)
-zoom = Vector2(4, 4)
-
-[node name="PointLight2D" type="PointLight2D" parent="Player"]
-energy = 0.5
-texture = ExtResource("8_qk6sc")
-texture_scale = 0.3
