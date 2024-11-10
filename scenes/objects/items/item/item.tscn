@@ -5,6 +5,7 @@
 [ext_resource type="Shader" path="res://scenes/objects/items/item.gdshader" id="2_kiyxc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0gu3"]
+size = Vector2(16, 16)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8cm38"]
 shader = ExtResource("2_kiyxc")

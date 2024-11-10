@@ -43,7 +43,7 @@ node_connections = [&"Blend2", 0, &"Idle", &"Blend2", 1, &"BriskWalk", &"output"
 radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2jvht"]
-radius = 32.0
+radius = 24.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Model")]
 motion_mode = 1
@@ -72,12 +72,12 @@ fov = 70.0
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Sprite/3DViewport/detectiveFops/Armature" index="0"]
-bones/1/rotation = Quaternion(0, -4.59203e-09, 0.0114522, 0.999934)
-bones/2/rotation = Quaternion(0.0120078, -0.0311795, 0.0645069, 0.997358)
-bones/3/rotation = Quaternion(-0.03919, -0.0472346, -0.70318, 0.708358)
-bones/4/rotation = Quaternion(0.0464324, 0.064696, 0.69098, 0.718474)
+bones/1/rotation = Quaternion(0, -4.59205e-09, 0.0161045, 0.99987)
+bones/2/rotation = Quaternion(0.0113399, -0.0307873, 0.064168, 0.9974)
+bones/3/rotation = Quaternion(-0.0391341, -0.0465592, -0.69894, 0.71259)
+bones/4/rotation = Quaternion(0.0395423, 0.0550957, 0.691586, 0.719104)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/rotation = Quaternion(0.188525, 0.0178022, -0.197152, 0.961911)
+bones/5/rotation = Quaternion(0.154183, 0.0207206, -0.207504, 0.965785)
 bones/5/scale = Vector3(1, 1, 1)
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite/3DViewport/detectiveFops"]
@@ -109,7 +109,6 @@ scale = Vector2(2.90909, 2.90909)
 zoom = Vector2(4, 4)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-energy = 0.5
 texture = ExtResource("3_mte83")
 texture_scale = 0.3
 
