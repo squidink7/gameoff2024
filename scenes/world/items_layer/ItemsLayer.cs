@@ -20,10 +20,15 @@ public partial class ItemsLayer : CanvasGroup
 		var player = players[0] as Player;
 		
 		Camera = player.GetNode<Camera2D>("WorldCamera");
+
+		// Render everything in the game world
+		GetNode<SubViewport>("LightmaskViewport").World2D = GetViewport().World2D;
+		// Set main viewport to not show lightmasks
+		GetTree().Root.GetViewport().SetCanvasCullMaskBit(1, false);
 	}
 
 	public override void _Process(double delta)
 	{
-		GetNode<Camera2D>("LightmaskViewport/Camera").Transform = Camera.Transform;
+		GetNode<Camera2D>("LightmaskViewport/Camera").GlobalPosition = Camera.GlobalPosition;
 	}
 }

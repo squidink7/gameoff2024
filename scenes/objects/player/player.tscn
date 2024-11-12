@@ -46,10 +46,12 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_2jvht"]
 radius = 24.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Model")]
+visibility_layer = 3
 motion_mode = 1
 script = ExtResource("1_ugjtn")
 Speed = 100.0
+Model = NodePath("Sprite/3DViewport/detectiveFops")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xxkos")
@@ -72,12 +74,12 @@ fov = 70.0
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Sprite/3DViewport/detectiveFops/Armature" index="0"]
-bones/1/rotation = Quaternion(0, 0, -0.0290316, 0.999579)
-bones/2/rotation = Quaternion(0.0153468, 0.0367019, 0.0629801, 0.997222)
-bones/3/rotation = Quaternion(-0.0396016, -0.0528083, -0.737596, 0.672008)
-bones/4/rotation = Quaternion(-0.00801483, -0.0111684, 0.693116, 0.720695)
+bones/1/rotation = Quaternion(0, -4.59205e-09, 0.0221576, 0.999755)
+bones/2/rotation = Quaternion(0.0162797, 0.038933, 0.0633215, 0.997101)
+bones/3/rotation = Quaternion(-0.0390585, -0.0456709, -0.69334, 0.718101)
+bones/4/rotation = Quaternion(-0.0309271, -0.0430934, 0.692206, 0.719748)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/rotation = Quaternion(-0.0195424, 0.0284649, -0.16342, 0.985952)
+bones/5/rotation = Quaternion(-0.063937, 0.0308277, -0.150309, 0.986088)
 bones/5/scale = Vector3(1, 1, 1)
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite/3DViewport/detectiveFops"]
@@ -93,8 +95,15 @@ shape = SubResource("CircleShape2D_6hibk")
 zoom = Vector2(4, 4)
 
 [node name="PointLight" type="PointLight2D" parent="."]
+visibility_layer = 3
 texture = ExtResource("3_mte83")
 texture_scale = 0.3
+
+[node name="LightMask" type="Sprite2D" parent="PointLight"]
+light_mask = 0
+visibility_layer = 2
+scale = Vector2(0.34375, 0.34375)
+texture = ExtResource("3_mte83")
 
 [node name="InteractionArea" type="Area2D" parent="."]
 
