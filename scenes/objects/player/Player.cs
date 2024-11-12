@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Player : CharacterBody2D
 {
@@ -8,7 +9,9 @@ public partial class Player : CharacterBody2D
 	[Export] float SmoothingFactor = 0.1f; // For velocity
 	[Export] float WalkSmoothingFactor = 0.1f; // For walk value
 	[Export] float RotationSmoothingFactor = 0.1f; // For rotation
-
+	
+	[Signal] public delegate void InventoryUpdatedEventHandler();
+	
 	private Vector2 targetVelocity = Vector2.Zero;
 	private float targetWalkVal = 0.0f;
 	private float walkVal = 0.0f;
@@ -16,11 +19,12 @@ public partial class Player : CharacterBody2D
 	private float rotation = 0.0f;
 	private AnimationTree animationTree;
 
+	public List<Item> Inventory = new();
+
 	public override void _Ready()
 	{
 		animationTree = Model.GetNode<AnimationTree>("AnimationTree");
 		animationTree.Active = true;
-		GetViewport().Connect("size_changed", Callable.From<Vector2I>((size) => { GetLightmaskViewport().Size = size; }));
 	}
 	
 	public override void _PhysicsProcess(double delta)
@@ -65,7 +69,19 @@ public partial class Player : CharacterBody2D
 		GetNearestItem();
 	}
 
-	Node2D? GetNearestItem()
+	public override void _Input(InputEvent ev)
+	{
+		if (ev.IsActionPressed("interact"))
+		{
+			PickupItem();
+		}
+		else if (ev.IsActionPressed("quit"))
+		{
+			GetTree().Quit();
+		}
+	}
+
+	Item? GetNearestItem()
 	{
 		float closestDistance = int.MaxValue;
 		Item closestItem = null;
@@ -104,8 +120,33 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
-	public SubViewport GetLightmaskViewport()
+	void PickupItem()
 	{
-		return GetNode<SubViewport>("LightmaskViewport");
+		var item = GetNearestItem();
+
+		if (item == null)
+		{
+			DropItem();
+			return;
+		}
+
+		// Only hold one item
+		Inventory.Clear();
+		Inventory.Add(item);
+		item.Disable();
+		
+		EmitSignal("InventoryUpdated");
+	}
+
+	void DropItem()
+	{
+		if (Inventory.Count == 0) return;
+
+		var item = Inventory[0];
+		Inventory.RemoveAt(0);
+
+		item.GlobalPosition = GlobalPosition - Vector2.Down * 10;
+		item.Enable();
+		EmitSignal("InventoryUpdated");
 	}
 }

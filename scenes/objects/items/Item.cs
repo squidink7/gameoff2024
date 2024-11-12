@@ -23,4 +23,21 @@ public partial class Item : StaticBody2D
 	{
 		GD.Print(Name);
 	}
+
+	public void Disable()
+	{
+		Visible = false;
+		GetNode<CollisionShape2D>("CollisionShape").Disabled = true;
+	}
+
+	public void Enable()
+	{
+		Visible = true;
+		GetNode<CollisionShape2D>("CollisionShape").Disabled = false;
+	}
+
+	public Texture2D GetTexture()
+	{
+		return GetNode<Sprite2D>("Sprite").Texture;
+	}
 }

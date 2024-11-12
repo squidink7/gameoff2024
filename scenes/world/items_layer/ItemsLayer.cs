@@ -3,6 +3,8 @@ using System;
 
 public partial class ItemsLayer : CanvasGroup
 {
+	Camera2D Camera;
+
 	// Locate and set shader material
 	public override void _Ready()
 	{
@@ -16,6 +18,12 @@ public partial class ItemsLayer : CanvasGroup
 		}
 
 		var player = players[0] as Player;
-		(Material as ShaderMaterial).SetShaderParameter("occluder_texture", player.GetLightmaskViewport().GetTexture());
+		
+		Camera = player.GetNode<Camera2D>("WorldCamera");
+	}
+
+	public override void _Process(double delta)
+	{
+		GetNode<Camera2D>("LightmaskViewport/Camera").Transform = Camera.Transform;
 	}
 }
