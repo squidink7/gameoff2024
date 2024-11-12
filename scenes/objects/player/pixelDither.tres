@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://citg4fa6jr5mi"]
+
+[ext_resource type="Shader" path="res://scenes/objects/player/PixelDither.gdshader" id="1_7ojqs"]
+
+[resource]
+shader = ExtResource("1_7ojqs")
+shader_parameter/fog_color = Color(0, 0, 0, 1)
+shader_parameter/resolution_downsampling = 2.0
+shader_parameter/bit_depth = 8.0
