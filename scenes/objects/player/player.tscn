@@ -45,11 +45,10 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_2jvht"]
 radius = 24.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Model")]
+[node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_ugjtn")
 Speed = 100.0
-Model = NodePath("Sprite/3DViewport/detectiveFops")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xxkos")
