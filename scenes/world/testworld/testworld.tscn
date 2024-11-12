@@ -61,7 +61,6 @@ shader = ExtResource("4_s8moi")
 shader_parameter/occluder_texture = SubResource("ViewportTexture_sgvw3")
 
 [node name="Testworld" type="Node2D"]
-visibility_layer = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -86,7 +85,6 @@ tile_map_data = PackedByteArray("AAD8//n/AAADAAEAAAD8//v/AAAAAAEAAAD8//3/AAAAAAE
 tile_set = SubResource("TileSet_4nnvh")
 
 [node name="ItemsLayer" parent="." instance=ExtResource("3_d45xl")]
-visibility_layer = 3
 material = SubResource("ShaderMaterial_8w8qi")
 
 [node name="Chest" type="Sprite2D" parent="ItemsLayer"]
@@ -105,4 +103,3 @@ texture = ExtResource("10_i6fmd")
 position = Vector2(-69, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_c4uh2")]
-visibility_layer = 3
