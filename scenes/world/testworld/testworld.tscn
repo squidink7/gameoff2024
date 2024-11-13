@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://c7qjx6by4y4x1"]
+[gd_scene load_steps=16 format=4 uid="uid://c7qjx6by4y4x1"]
 
 [ext_resource type="PackedScene" uid="uid://da2kj0k548srg" path="res://scenes/objects/player/player.tscn" id="1_c4uh2"]
 [ext_resource type="Material" uid="uid://citg4fa6jr5mi" path="res://scenes/objects/player/pixelDither.tres" id="1_u4up6"]
@@ -7,9 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cbmo13yl883qf" path="res://scenes/world/items_layer/items_layer.tscn" id="3_d45xl"]
 [ext_resource type="Shader" path="res://scenes/objects/player/lightoccluder.gdshader" id="4_s8moi"]
 [ext_resource type="Texture2D" uid="uid://cj22musgebly7" path="res://assets/textures/world/chest.png" id="5_ymal3"]
-[ext_resource type="Texture2D" uid="uid://c357fiyrs4kp3" path="res://assets/textures/world/Door.png" id="6_ppnwu"]
+[ext_resource type="Texture2D" uid="uid://c0xdfbnr8vv7m" path="res://assets/textures/world/sandstonedoor.png" id="7_u2yvx"]
 [ext_resource type="PackedScene" uid="uid://b6nft1x2ebufa" path="res://scenes/objects/items/item/item.tscn" id="8_qbb16"]
-[ext_resource type="Texture2D" uid="uid://vs7hx8x07da1" path="res://assets/textures/world/Door2.png" id="10_i6fmd"]
 
 [sub_resource type="Environment" id="Environment_p8vtl"]
 background_mode = 3
@@ -90,13 +89,9 @@ material = SubResource("ShaderMaterial_8w8qi")
 position = Vector2(16, -30)
 texture = ExtResource("5_ymal3")
 
-[node name="Door" type="Sprite2D" parent="ItemsLayer"]
-position = Vector2(80, -16)
-texture = ExtResource("6_ppnwu")
-
-[node name="Door2" type="Sprite2D" parent="ItemsLayer"]
-position = Vector2(95, -9)
-texture = ExtResource("10_i6fmd")
+[node name="Sandstonedoor" type="Sprite2D" parent="ItemsLayer"]
+position = Vector2(65, -25)
+texture = ExtResource("7_u2yvx")
 
 [node name="Item" parent="ItemsLayer" instance=ExtResource("8_qbb16")]
 position = Vector2(-69, 0)
