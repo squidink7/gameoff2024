@@ -3,14 +3,24 @@
 [ext_resource type="Shader" path="res://scenes/objects/player/lightoccluder.gdshader" id="1_e66gq"]
 [ext_resource type="Script" path="res://scenes/world/items_layer/ItemsLayer.cs" id="1_kfbkp"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ithes"]
-viewport_path = NodePath("Player/LightmaskViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_7gg8y"]
+viewport_path = NodePath("LightmaskViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_va8vk"]
 resource_local_to_scene = true
 shader = ExtResource("1_e66gq")
-shader_parameter/occluder_texture = SubResource("ViewportTexture_ithes")
+shader_parameter/occluder_texture = SubResource("ViewportTexture_7gg8y")
 
 [node name="ItemsLayer" type="CanvasGroup"]
 material = SubResource("ShaderMaterial_va8vk")
 script = ExtResource("1_kfbkp")
+
+[node name="LightmaskViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+canvas_cull_mask = 4294966273
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera" type="Camera2D" parent="LightmaskViewport"]
+zoom = Vector2(4, 4)

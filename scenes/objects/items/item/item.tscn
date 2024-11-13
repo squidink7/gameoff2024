@@ -18,7 +18,7 @@ shader_parameter/add_margins = true
 [node name="Item" type="StaticBody2D"]
 script = ExtResource("1_d08oy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_l0gu3")
 
 [node name="Sprite" type="Sprite2D" parent="."]

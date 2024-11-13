@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://da2kj0k548srg"]
+[gd_scene load_steps=16 format=3 uid="uid://da2kj0k548srg"]
 
 [ext_resource type="Script" path="res://scenes/objects/player/Player.cs" id="1_ugjtn"]
 [ext_resource type="PackedScene" uid="uid://ddvcks2id6uf6" path="res://assets/models/objects/player/detectiveFops.glb" id="2_ai7ju"]
 [ext_resource type="Texture2D" uid="uid://cs8lc066c3r4y" path="res://assets/textures/objects/player/lightmask.svg" id="3_mte83"]
+[ext_resource type="PackedScene" uid="uid://cda8whjgl37hn" path="res://scenes/game/hud/hud.tscn" id="4_3sun1"]
+[ext_resource type="PackedScene" uid="uid://pqer1tfovhhr" path="res://scenes/objects/lightmask/lightmask.tscn" id="4_llo1o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uwmu8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -45,10 +47,12 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_2jvht"]
 radius = 24.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Model")]
+visibility_layer = 3
 motion_mode = 1
 script = ExtResource("1_ugjtn")
 Speed = 100.0
+Model = NodePath("Sprite/3DViewport/detectiveFops")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xxkos")
@@ -71,12 +75,12 @@ fov = 70.0
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Sprite/3DViewport/detectiveFops/Armature" index="0"]
-bones/1/rotation = Quaternion(0, -4.59205e-09, 0.0161045, 0.99987)
-bones/2/rotation = Quaternion(0.0113399, -0.0307873, 0.064168, 0.9974)
-bones/3/rotation = Quaternion(-0.0391341, -0.0465592, -0.69894, 0.71259)
-bones/4/rotation = Quaternion(0.0395423, 0.0550957, 0.691586, 0.719104)
+bones/1/rotation = Quaternion(0, 0, -0.0170849, 0.999854)
+bones/2/rotation = Quaternion(0.0122876, -0.030323, 0.0646037, 0.997375)
+bones/3/rotation = Quaternion(-0.0394933, -0.0512152, -0.727866, 0.682663)
+bones/4/rotation = Quaternion(0.0387981, 0.0540588, 0.691645, 0.719166)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/rotation = Quaternion(0.154183, 0.0207206, -0.207504, 0.965785)
+bones/5/rotation = Quaternion(0.148403, 0.0186201, -0.201274, 0.968049)
 bones/5/scale = Vector3(1, 1, 1)
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite/3DViewport/detectiveFops"]
@@ -91,31 +95,23 @@ shape = SubResource("CircleShape2D_6hibk")
 [node name="WorldCamera" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
-[node name="LightmaskViewport" type="SubViewport" parent="."]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(1152, 648)
-render_target_update_mode = 4
-
-[node name="LightMask" type="Sprite2D" parent="LightmaskViewport"]
-light_mask = 0
-visibility_layer = 2
-scale = Vector2(0.34375, 0.34375)
-texture = ExtResource("3_mte83")
-
-[node name="Camera2D" type="Camera2D" parent="LightmaskViewport/LightMask"]
-scale = Vector2(2.90909, 2.90909)
-zoom = Vector2(4, 4)
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight" type="PointLight2D" parent="."]
+visibility_layer = 3
 texture = ExtResource("3_mte83")
 texture_scale = 0.3
+
+[node name="Lightmask" parent="PointLight" instance=ExtResource("4_llo1o")]
+scale = Vector2(0.34375, 0.34375)
+Texture = ExtResource("3_mte83")
 
 [node name="InteractionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_2jvht")
 
+[node name="HUD" parent="." instance=ExtResource("4_3sun1")]
+
+[connection signal="InventoryUpdated" from="." to="HUD" method="UpdateInventory"]
 [connection signal="body_exited" from="InteractionArea" to="." method="ItemExit"]
 
 [editable path="Sprite/3DViewport/detectiveFops"]
