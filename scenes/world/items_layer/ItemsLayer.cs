@@ -18,13 +18,15 @@ public partial class ItemsLayer : CanvasGroup
 		if (players.Count == 0)
 		{
 			GD.Print("No Player in scene, All Items visible");
-			Material = null;
 			return;
 		}
 
 		var player = players[0] as Player;
 		
 		Camera = player.GetNode<Camera2D>("WorldCamera");
+
+		// Set material
+		(Material as ShaderMaterial).SetShaderParameter("occluder_texture", (LightmaskRoot as SubViewport).GetTexture());
 	}
 
 	public override void _Process(double delta)

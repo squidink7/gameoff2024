@@ -1,14 +1,14 @@
-[gd_scene load_steps=16 format=4 uid="uid://c7qjx6by4y4x1"]
+[gd_scene load_steps=15 format=4 uid="uid://c7qjx6by4y4x1"]
 
 [ext_resource type="PackedScene" uid="uid://da2kj0k548srg" path="res://scenes/objects/player/player.tscn" id="1_c4uh2"]
 [ext_resource type="Material" uid="uid://citg4fa6jr5mi" path="res://scenes/objects/player/pixelDither.tres" id="1_u4up6"]
-[ext_resource type="Texture2D" uid="uid://i0qw6ec30dm7" path="res://assets/textures/world/sandstone_normal.png" id="1_vchqv"]
 [ext_resource type="Texture2D" uid="uid://dcjsk110e24mw" path="res://assets/textures/world/sandstone.png" id="2_tnaej"]
 [ext_resource type="PackedScene" uid="uid://cbmo13yl883qf" path="res://scenes/world/items_layer/items_layer.tscn" id="3_d45xl"]
 [ext_resource type="Shader" path="res://scenes/objects/player/lightoccluder.gdshader" id="4_s8moi"]
 [ext_resource type="Texture2D" uid="uid://cj22musgebly7" path="res://assets/textures/world/chest.png" id="5_ymal3"]
 [ext_resource type="Texture2D" uid="uid://c0xdfbnr8vv7m" path="res://assets/textures/world/sandstonedoor.png" id="7_u2yvx"]
-[ext_resource type="PackedScene" uid="uid://b6nft1x2ebufa" path="res://scenes/objects/items/item/item.tscn" id="8_qbb16"]
+[ext_resource type="PackedScene" uid="uid://sjl58s1i6aa6" path="res://scenes/objects/items/interactive/item/item.tscn" id="8_hgpww"]
+[ext_resource type="PackedScene" uid="uid://b6nft1x2ebufa" path="res://scenes/objects/items/movable/item/item.tscn" id="8_qbb16"]
 
 [sub_resource type="Environment" id="Environment_p8vtl"]
 background_mode = 3
@@ -16,7 +16,6 @@ glow_enabled = true
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_aiyui"]
 diffuse_texture = ExtResource("2_tnaej")
-normal_texture = ExtResource("1_vchqv")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rsms"]
 texture = SubResource("CanvasTexture_aiyui")
@@ -51,13 +50,9 @@ tile_size = Vector2i(32, 16)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7rsms")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sgvw3"]
-viewport_path = NodePath("LightmaskViewport")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8w8qi"]
 resource_local_to_scene = true
 shader = ExtResource("4_s8moi")
-shader_parameter/occluder_texture = SubResource("ViewportTexture_sgvw3")
 
 [node name="Testworld" type="Node2D"]
 
@@ -96,5 +91,8 @@ texture = ExtResource("7_u2yvx")
 
 [node name="Item" parent="ItemsLayer" instance=ExtResource("8_qbb16")]
 position = Vector2(-69, 0)
+
+[node name="Item2" parent="ItemsLayer" instance=ExtResource("8_hgpww")]
+position = Vector2(32, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_c4uh2")]

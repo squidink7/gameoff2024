@@ -18,26 +18,4 @@ public partial class Item : StaticBody2D
 			(GetNode<Sprite2D>("Sprite").Material as ShaderMaterial).SetShaderParameter("width", 0);
 		}
 	}
-
-	public void Highlight()
-	{
-		GD.Print(Name);
-	}
-
-	public void Disable()
-	{
-		Visible = false;
-		GetNode<CollisionShape2D>("CollisionShape").Disabled = true;
-	}
-
-	public void Enable()
-	{
-		Visible = true;
-		GetNode<CollisionShape2D>("CollisionShape").Disabled = false;
-	}
-
-	public Texture2D GetTexture()
-	{
-		return GetNode<Sprite2D>("Sprite").Texture;
-	}
 }
