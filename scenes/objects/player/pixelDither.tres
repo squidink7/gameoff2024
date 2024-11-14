@@ -5,5 +5,5 @@
 [resource]
 shader = ExtResource("1_7ojqs")
 shader_parameter/fog_color = Color(0, 0, 0, 1)
-shader_parameter/resolution_downsampling = 2.0
+shader_parameter/resolution_downsampling = 1.0
 shader_parameter/bit_depth = 8.0
