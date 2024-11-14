@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public partial class Player : CharacterBody2D
 {
     [Export] float Speed = 10;
+    [Export] private float MaxVolumeDb = 0.0f; // Maximum volume when moving
+    [Export] private float MinVolumeDb = -80.0f; // Minimum volume when not moving
     [Export] Node3D Model;
     [Export] float SmoothingFactor = 0.1f; // For velocity
     [Export] float WalkSmoothingFactor = 0.1f; // For walk value
@@ -18,6 +20,7 @@ public partial class Player : CharacterBody2D
     private float targetRotation = 0.0f;
     private float rotation = 0.0f;
     private AnimationTree animationTree;
+    private AudioStreamPlayer walkingSound;
 
     public List<Item> Inventory = new();
 
@@ -25,6 +28,8 @@ public partial class Player : CharacterBody2D
     {
         animationTree = Model.GetNode<AnimationTree>("AnimationTree");
         animationTree.Active = true;
+        walkingSound = GetNode<AudioStreamPlayer>("WalkingSound");
+        walkingSound.Play();
     }
 
     public override void _PhysicsProcess(double delta)
@@ -81,6 +86,10 @@ public partial class Player : CharacterBody2D
         }
 
         animationTree.Set("parameters/Blend2/blend_amount", walkVal);
+
+        float velocityMagnitude = Velocity.Length();
+        walkingSound.VolumeDb = walkVal * MaxVolumeDb + (1 - walkVal) * MinVolumeDb;
+
 
         GetNearestItem();
     }

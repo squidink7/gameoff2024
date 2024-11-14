@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://da2kj0k548srg"]
+[gd_scene load_steps=17 format=3 uid="uid://da2kj0k548srg"]
 
 [ext_resource type="Script" path="res://scenes/objects/player/Player.cs" id="1_ugjtn"]
 [ext_resource type="PackedScene" uid="uid://ddvcks2id6uf6" path="res://assets/models/objects/player/detectiveFops.glb" id="2_ai7ju"]
 [ext_resource type="Texture2D" uid="uid://cs8lc066c3r4y" path="res://assets/textures/objects/player/lightmask.svg" id="3_mte83"]
 [ext_resource type="PackedScene" uid="uid://cda8whjgl37hn" path="res://scenes/game/hud/hud.tscn" id="4_3sun1"]
 [ext_resource type="PackedScene" uid="uid://pqer1tfovhhr" path="res://scenes/objects/lightmask/lightmask.tscn" id="4_llo1o"]
+[ext_resource type="AudioStream" uid="uid://hsv4lu3y3epk" path="res://assets/audio/sounds/stepping.wav" id="6_gckpk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uwmu8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -75,12 +76,12 @@ fov = 70.0
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Sprite/3DViewport/detectiveFops/Armature" index="0"]
-bones/1/rotation = Quaternion(-1.34412e-17, 6.75118e-10, -0.0358448, 0.999357)
-bones/2/rotation = Quaternion(0.00902862, -0.0222673, 0.0626761, 0.997745)
-bones/3/rotation = Quaternion(-0.0396657, -0.0537199, -0.743109, 0.66583)
-bones/4/rotation = Quaternion(-0.0450655, -0.0627932, 0.691108, 0.718607)
+bones/1/rotation = Quaternion(-8.72905e-17, 4.88275e-09, -0.0243769, 0.999703)
+bones/2/rotation = Quaternion(0.00458116, -0.0112986, 0.0600395, 0.998122)
+bones/3/rotation = Quaternion(-0.0400869, -0.0517841, -0.729839, 0.680475)
+bones/4/rotation = Quaternion(-0.0667502, -0.0930078, 0.688624, 0.716024)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/rotation = Quaternion(-0.0923177, 0.0335409, -0.213911, 0.971903)
+bones/5/rotation = Quaternion(-0.116782, 0.0355434, -0.211058, 0.969821)
 bones/5/scale = Vector3(1, 1, 1)
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite/3DViewport/detectiveFops"]
@@ -110,6 +111,9 @@ Texture = ExtResource("3_mte83")
 shape = SubResource("CircleShape2D_2jvht")
 
 [node name="HUD" parent="." instance=ExtResource("4_3sun1")]
+
+[node name="WalkingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_gckpk")
 
 [connection signal="body_exited" from="InteractionArea" to="." method="ItemExit"]
 

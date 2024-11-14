@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c7qjx6by4y4x1"]
+[gd_scene load_steps=25 format=4 uid="uid://c7qjx6by4y4x1"]
 
 [ext_resource type="PackedScene" uid="uid://da2kj0k548srg" path="res://scenes/objects/player/player.tscn" id="1_c4uh2"]
 [ext_resource type="Material" uid="uid://citg4fa6jr5mi" path="res://scenes/objects/player/pixelDither.tres" id="1_u4up6"]
@@ -9,6 +9,15 @@
 [ext_resource type="Texture2D" uid="uid://cj22musgebly7" path="res://assets/textures/world/chest.png" id="5_ymal3"]
 [ext_resource type="Texture2D" uid="uid://c0xdfbnr8vv7m" path="res://assets/textures/world/sandstonedoor.png" id="7_u2yvx"]
 [ext_resource type="PackedScene" uid="uid://b6nft1x2ebufa" path="res://scenes/objects/items/item/item.tscn" id="8_qbb16"]
+[ext_resource type="Script" path="res://scenes/game/music/MusicManager.cs" id="10_i6whp"]
+[ext_resource type="AudioStream" uid="uid://dbqh4yxh8ik5y" path="res://assets/audio/music/amb.wav" id="11_iogy7"]
+[ext_resource type="AudioStream" uid="uid://btfe0s7n0c0d6" path="res://assets/audio/music/cloud.wav" id="12_at14g"]
+[ext_resource type="AudioStream" uid="uid://jun8ra33w12v" path="res://assets/audio/music/eeire.wav" id="13_areim"]
+[ext_resource type="AudioStream" uid="uid://cfgwtti7ckljc" path="res://assets/audio/music/kamlib.wav" id="14_kqjwq"]
+[ext_resource type="AudioStream" uid="uid://2mgc1t7ko3qw" path="res://assets/audio/music/lim.wav" id="15_1woqr"]
+[ext_resource type="AudioStream" uid="uid://cmct5ng68wh1y" path="res://assets/audio/music/nice choir.wav" id="16_j1o3j"]
+[ext_resource type="AudioStream" uid="uid://c7y7snndv3ko8" path="res://assets/audio/music/song1.wav" id="17_2dref"]
+[ext_resource type="AudioStream" uid="uid://bco6br4dytflp" path="res://assets/audio/music/spooky choir.wav" id="18_ctasx"]
 
 [sub_resource type="Environment" id="Environment_p8vtl"]
 background_mode = 3
@@ -98,3 +107,30 @@ texture = ExtResource("7_u2yvx")
 position = Vector2(-69, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_c4uh2")]
+
+[node name="MusicManager" type="Node" parent="."]
+script = ExtResource("10_i6whp")
+
+[node name="amb" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("11_iogy7")
+
+[node name="cloud" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("12_at14g")
+
+[node name="eeire" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("13_areim")
+
+[node name="kamlib" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("14_kqjwq")
+
+[node name="lim" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("15_1woqr")
+
+[node name="nice choir" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("16_j1o3j")
+
+[node name="song1" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("17_2dref")
+
+[node name="spooky choir" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("18_ctasx")
