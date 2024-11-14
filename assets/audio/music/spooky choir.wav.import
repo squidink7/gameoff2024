@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bco6br4dytflp"
+path="res://.godot/imported/spooky choir.wav-847311420b748efc9940d67794023580.sample"
+
+[deps]
+
+source_file="res://assets/audio/music/spooky choir.wav"
+dest_files=["res://.godot/imported/spooky choir.wav-847311420b748efc9940d67794023580.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
