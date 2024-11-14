@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://sjl58s1i6aa6"]
+
+[ext_resource type="Script" path="res://scenes/objects/items/interactable/InteractableItem.cs" id="1_3aa02"]
+[ext_resource type="Shader" path="res://scenes/objects/items/item.gdshader" id="2_r73vt"]
+[ext_resource type="Texture2D" uid="uid://b465jg71svfub" path="res://icon.svg" id="3_0dclr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0gu3"]
+size = Vector2(16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8cm38"]
+shader = ExtResource("2_r73vt")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 5.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[node name="Item" type="StaticBody2D"]
+script = ExtResource("1_3aa02")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l0gu3")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_8cm38")
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("3_0dclr")

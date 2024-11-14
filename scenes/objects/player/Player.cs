@@ -13,6 +13,7 @@ public partial class Player : CharacterBody2D
     [Export] float RotationSmoothingFactor = 0.1f; // For rotation
 
     [Signal] public delegate void InventoryUpdatedEventHandler();
+	public List<MovableItem> Inventory = new();
 
     private Vector2 targetVelocity = Vector2.Zero;
     private float targetWalkVal = 0.0f;
@@ -21,8 +22,6 @@ public partial class Player : CharacterBody2D
     private float rotation = 0.0f;
     private AnimationTree animationTree;
     private AudioStreamPlayer walkingSound;
-
-    public List<Item> Inventory = new();
 
     public override void _Ready()
     {
@@ -98,7 +97,7 @@ public partial class Player : CharacterBody2D
     {
         if (ev.IsActionPressed("interact"))
         {
-            PickupItem();
+            Interact();
         }
         else if (ev.IsActionPressed("quit"))
         {
@@ -112,56 +111,65 @@ public partial class Player : CharacterBody2D
         Item closestItem = null;
 
 
-        foreach (var body in GetNode<Area2D>("InteractionArea").GetOverlappingBodies())
-        {
-            if (body is Item item) // body is Item
-            {
-                var distance = Mathf.Abs((item.GlobalPosition - GlobalPosition).LengthSquared());
-                if (distance < closestDistance)
-                {
-                    closestDistance = distance;
-                    closestItem = item;
-                    if (closestItem != null)
-                    {
-                        item.Highlighted = true;
-                    }
-                    item.Highlighted = true;
-                }
-                else
-                {
-                    item.Highlighted = false;
-                }
-            }
-        }
+		foreach (var body in GetNode<Area2D>("InteractionArea").GetOverlappingBodies())
+		{
+			if (body is Item item) // body is Item
+			{
+				var distance = Mathf.Abs((item.GlobalPosition - GlobalPosition).LengthSquared());
+				if (distance < closestDistance)
+				{
+					// highlight new closest item
+					if (closestItem != null)
+					{
+						closestItem.Highlighted = false;
+					}
+					item.Highlighted = true;
+					closestDistance = distance;
+					closestItem = item;
+				}
+				else
+				{
+					item.Highlighted = false;
+				}
+			}
+		}
 
         return closestItem;
     }
 
-    void ItemExit(Node2D body)
-    {
-        if (body is Item item)
-        {
-            item.Highlighted = false;
-        }
-    }
 
-    void PickupItem()
-    {
-        var item = GetNearestItem();
+	void ItemExit(Node2D body)
+	{
+		if (body is Item item)
+		{
+			item.Highlighted = false;
+		}
+	}
 
-        if (item == null)
-        {
-            DropItem();
-            return;
-        }
+	void Interact()
+	{
+		var item = GetNearestItem();
 
-        // Only hold one item
-        Inventory.Clear();
-        Inventory.Add(item);
-        item.Disable();
+		if (Inventory.Count > 0)
+		{
+			DropItem();
+			return;
+		}
 
-        EmitSignal("InventoryUpdated");
-    }
+		if (item is MovableItem movable)
+		{
+			// Only hold one item
+			Inventory.Clear();
+			Inventory.Add(movable);
+			movable.PickUp();
+			
+			EmitSignal("InventoryUpdated");
+		}
+		else if (item is InteractableItem interactable)
+		{
+			interactable.Activate();
+		}
+	}
 
     void DropItem()
     {
@@ -176,7 +184,7 @@ public partial class Player : CharacterBody2D
         Vector2 dropPosition = GlobalPosition + dropDirection * 25;
 
         item.GlobalPosition = dropPosition;
-        item.Enable();
+        item.Drop();
         EmitSignal("InventoryUpdated");
     }
 }
