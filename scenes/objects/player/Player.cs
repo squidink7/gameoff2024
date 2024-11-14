@@ -156,9 +156,9 @@ public partial class Player : CharacterBody2D
 			
 			EmitSignal("InventoryUpdated");
 		}
-		else if (item is InteractiveItem interactive)
+		else if (item is InteractableItem interactable)
 		{
-			interactive.Activate();
+			interactable.Activate();
 		}
 	}
 

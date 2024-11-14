@@ -7,7 +7,7 @@
 [ext_resource type="Shader" path="res://scenes/objects/player/lightoccluder.gdshader" id="4_s8moi"]
 [ext_resource type="Texture2D" uid="uid://cj22musgebly7" path="res://assets/textures/world/chest.png" id="5_ymal3"]
 [ext_resource type="Texture2D" uid="uid://c0xdfbnr8vv7m" path="res://assets/textures/world/sandstonedoor.png" id="7_u2yvx"]
-[ext_resource type="PackedScene" uid="uid://sjl58s1i6aa6" path="res://scenes/objects/items/interactive/item/item.tscn" id="8_hgpww"]
+[ext_resource type="PackedScene" uid="uid://sjl58s1i6aa6" path="res://scenes/objects/items/interactable/item/item.tscn" id="8_hgpww"]
 [ext_resource type="PackedScene" uid="uid://b6nft1x2ebufa" path="res://scenes/objects/items/movable/item/item.tscn" id="8_qbb16"]
 
 [sub_resource type="Environment" id="Environment_p8vtl"]

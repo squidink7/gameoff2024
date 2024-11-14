@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://sjl58s1i6aa6"]
 
-[ext_resource type="Script" path="res://scenes/objects/items/interactive/InteractiveItem.cs" id="1_3aa02"]
+[ext_resource type="Script" path="res://scenes/objects/items/interactable/InteractableItem.cs" id="1_3aa02"]
 [ext_resource type="Shader" path="res://scenes/objects/items/item.gdshader" id="2_r73vt"]
 [ext_resource type="Texture2D" uid="uid://b465jg71svfub" path="res://icon.svg" id="3_0dclr"]
 

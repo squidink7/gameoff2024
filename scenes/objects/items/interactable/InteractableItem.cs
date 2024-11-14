@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-public partial class InteractiveItem : Item
+public partial class InteractableItem : Item
 {
 	[Signal] public delegate void ActivatedEventHandler();
 	
