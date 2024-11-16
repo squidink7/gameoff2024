@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://dp88ko3hrf6e4"]
+
+[ext_resource type="Script" path="res://scenes/objects/items/activatable/door/SandstoneDoor.cs" id="1_2pi7b"]
+[ext_resource type="Texture2D" uid="uid://c7qraunkoh5rj" path="res://assets/textures/world/sandstonedoorleft.png" id="2_kc7tp"]
+[ext_resource type="Texture2D" uid="uid://boxr78ij07b4q" path="res://assets/textures/world/sandstonedoorright.png" id="3_1chwt"]
+
+[sub_resource type="Animation" id="Animation_qwend"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sandstonedoorright:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-24, -12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DoorCollider:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_b4pqm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sandstonedoorright:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DoorCollider:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1jl81"]
+_data = {
+"RESET": SubResource("Animation_b4pqm"),
+"open": SubResource("Animation_qwend")
+}
+
+[node name="SandstoneDoor" type="StaticBody2D"]
+script = ExtResource("1_2pi7b")
+
+[node name="Sandstonedoorleft" type="Sprite2D" parent="."]
+texture = ExtResource("2_kc7tp")
+
+[node name="Sandstonedoorright" type="Sprite2D" parent="."]
+texture = ExtResource("3_1chwt")
+
+[node name="FixedCollider" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-32, -32, 0, -16, 0, 16, -32, 0)
+
+[node name="DoorCollider" type="CollisionPolygon2D" parent="."]
+position = Vector2(32, 17)
+polygon = PackedVector2Array(-32, -32, -3, -17, -3, 14, -32, 0)
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1jl81")
+}
