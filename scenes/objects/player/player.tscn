@@ -76,12 +76,12 @@ fov = 70.0
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Sprite/3DViewport/detectiveFops/Armature" index="0"]
-bones/1/rotation = Quaternion(-8.72905e-17, 4.88275e-09, -0.0243769, 0.999703)
-bones/2/rotation = Quaternion(0.00458116, -0.0112986, 0.0600395, 0.998122)
-bones/3/rotation = Quaternion(-0.0400869, -0.0517841, -0.729839, 0.680475)
-bones/4/rotation = Quaternion(-0.0667502, -0.0930078, 0.688624, 0.716024)
+bones/1/rotation = Quaternion(0, 0, -0.0244346, 0.999701)
+bones/2/rotation = Quaternion(0.0160591, 0.0384054, 0.0632408, 0.99713)
+bones/3/rotation = Quaternion(-0.0395611, -0.0521995, -0.733888, 0.676105)
+bones/4/rotation = Quaternion(-0.0261681, -0.0364625, 0.692483, 0.720037)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/rotation = Quaternion(-0.116782, 0.0355434, -0.211058, 0.969821)
+bones/5/rotation = Quaternion(-0.0604371, 0.0304967, -0.169567, 0.983191)
 bones/5/scale = Vector3(1, 1, 1)
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite/3DViewport/detectiveFops"]

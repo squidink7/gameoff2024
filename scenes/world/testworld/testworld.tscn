@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://c7qjx6by4y4x1"]
+[gd_scene load_steps=24 format=4 uid="uid://c7qjx6by4y4x1"]
 
 [ext_resource type="PackedScene" uid="uid://da2kj0k548srg" path="res://scenes/objects/player/player.tscn" id="1_c4uh2"]
 [ext_resource type="Material" uid="uid://citg4fa6jr5mi" path="res://scenes/objects/player/pixelDither.tres" id="1_u4up6"]
@@ -10,14 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://sjl58s1i6aa6" path="res://scenes/objects/items/interactable/item/item.tscn" id="8_hgpww"]
 [ext_resource type="PackedScene" uid="uid://b6nft1x2ebufa" path="res://scenes/objects/items/movable/item/item.tscn" id="8_qbb16"]
 [ext_resource type="Script" path="res://scenes/game/music/MusicManager.cs" id="10_i6whp"]
-[ext_resource type="AudioStream" uid="uid://dbqh4yxh8ik5y" path="res://assets/audio/music/amb.wav" id="11_iogy7"]
-[ext_resource type="AudioStream" uid="uid://btfe0s7n0c0d6" path="res://assets/audio/music/cloud.wav" id="12_at14g"]
-[ext_resource type="AudioStream" uid="uid://jun8ra33w12v" path="res://assets/audio/music/eeire.wav" id="13_areim"]
-[ext_resource type="AudioStream" uid="uid://cfgwtti7ckljc" path="res://assets/audio/music/kamlib.wav" id="14_kqjwq"]
-[ext_resource type="AudioStream" uid="uid://2mgc1t7ko3qw" path="res://assets/audio/music/lim.wav" id="15_1woqr"]
-[ext_resource type="AudioStream" uid="uid://cmct5ng68wh1y" path="res://assets/audio/music/nice choir.wav" id="16_j1o3j"]
-[ext_resource type="AudioStream" uid="uid://c7y7snndv3ko8" path="res://assets/audio/music/song1.wav" id="17_2dref"]
-[ext_resource type="AudioStream" uid="uid://bco6br4dytflp" path="res://assets/audio/music/spooky choir.wav" id="18_ctasx"]
+[ext_resource type="AudioStream" uid="uid://cw74wd2qyn0m5" path="res://assets/audio/music/amb.wav" id="11_iogy7"]
+[ext_resource type="AudioStream" uid="uid://bx6jah8a8i1a4" path="res://assets/audio/music/cloud.wav" id="12_at14g"]
+[ext_resource type="AudioStream" uid="uid://cg4idmon8tvda" path="res://assets/audio/music/eeire.wav" id="13_areim"]
+[ext_resource type="AudioStream" uid="uid://cydyby5rsq3vt" path="res://assets/audio/music/kamlib.wav" id="14_kqjwq"]
+[ext_resource type="AudioStream" uid="uid://xeqm3q3hwfrl" path="res://assets/audio/music/lim.wav" id="15_1woqr"]
+[ext_resource type="AudioStream" uid="uid://bft8lo6k30e6q" path="res://assets/audio/music/nice choir.wav" id="16_j1o3j"]
+[ext_resource type="AudioStream" uid="uid://b3n1ffuaavytk" path="res://assets/audio/music/song1.wav" id="17_2dref"]
+[ext_resource type="AudioStream" uid="uid://6dfqa8gkv5e4" path="res://assets/audio/music/spooky choir.wav" id="18_ctasx"]
 
 [sub_resource type="Environment" id="Environment_p8vtl"]
 background_mode = 3
